@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2018-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,10 @@
 #include <fstream>
 
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
-#define WHITE_LED       "/sys/class/leds/white/"
 
-#define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
-#define MAX_BRIGHTNESS  "max_brightness"
+
+#define MAX_LCD_BRIGHTNESS    4095
 
 namespace {
 /*
@@ -46,25 +45,6 @@ static void set(std::string path, std::string value) {
 
 static void set(std::string path, int value) {
     set(path, std::to_string(value));
-}
-
-static int get(std::string path) {
-    std::ifstream file(path);
-    int value;
-
-    if (!file.is_open()) {
-    ALOGW("failed to read from %s", path.c_str());
-    return 0;
-    }
-
-    file >> value;
-    return value;
-}
-
-static int getMaxBrightness(std::string path) {
-    int value = get(path);
-    ALOGW("Got max brightness %d", value);
-    return value;
 }
 
 static uint32_t getBrightness(const LightState& state) {
@@ -99,27 +79,12 @@ static inline uint32_t getScaledBrightness(const LightState& state, uint32_t max
 }
 
 static void handleBacklight(const LightState& state) {
-    uint32_t brightness = getScaledBrightness(state, getMaxBrightness(LCD_LED MAX_BRIGHTNESS));
+    uint32_t brightness = getScaledBrightness(state, MAX_LCD_BRIGHTNESS);
     set(LCD_LED BRIGHTNESS, brightness);
 }
 
 static void handleNotification(const LightState& state) {
-    uint32_t whiteBrightness = getScaledBrightness(state, getMaxBrightness(WHITE_LED MAX_BRIGHTNESS));
-    /* Disable breathing */
-    set(WHITE_LED BREATH, 0);
-
-    switch (state.flashMode) {
-        case Flash::HARDWARE:
-        case Flash::TIMED:
-            /* Breathing */
-            /* We don't have control over the pace of breathing */
-            /* DELAY_OFF and DELAY_ON are simply blinks, not actually breathing */
-            set(WHITE_LED BREATH, 1);
-            break;
-        case Flash::NONE:
-        default:
-            set(WHITE_LED BRIGHTNESS, whiteBrightness);
-    }
+    (void) state;
 }
 
 static inline bool isLit(const LightState& state) {
