@@ -47,9 +47,9 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Camera
+# Prebuilt Packages
 PRODUCT_PACKAGES += \
-    Snap
+    GCamGo
 
 # A/B
 AB_OTA_UPDATER := false
