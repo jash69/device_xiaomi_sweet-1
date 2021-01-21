@@ -104,6 +104,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sweet
 
+# Remove Packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
