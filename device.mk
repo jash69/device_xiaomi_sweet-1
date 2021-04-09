@@ -142,6 +142,10 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.sweet
 
+# Init
+PRODUCT_PACKAGES += \
+    init.qcom.rc
+
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := false
