@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/dot_gauguin.mk
+    $(LOCAL_DIR)/p404_sweet.mk
 
 COMMON_LUNCH_CHOICES := \
-    dot_gauguin-user \
-    dot_gauguin-userdebug \
-    dot_gauguin-eng
+    p404_sweet-user \
+    p404_sweet-userdebug \
+    p404_sweet-eng
