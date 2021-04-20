@@ -64,10 +64,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_sweet
-TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
-
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 androidboot.usbcontroller=a600000.dwc3 loop.max_part=7 androidboot.selinux=permissive androidboot.usbconfigfs=true androidboot.recoveyboot=true
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
