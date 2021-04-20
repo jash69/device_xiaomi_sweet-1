@@ -5,7 +5,7 @@
 #
 
 BOARD_VENDOR := xiaomi
-DEVICE_PATH := device/xiaomi/gauguin
+DEVICE_PATH := device/xiaomi/sweet
 
 BUILD_BROKEN_DUP_RULES := true
 
@@ -25,7 +25,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := gauguin,gauguininpro,gauguinpro
+TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
 # Audio
 AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
@@ -42,7 +42,7 @@ TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 TARGET_USE_QTI_BT_STACK := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := lito
+TARGET_BOOTLOADER_BOARD_NAME := sm6150
 TARGET_NO_BOOTLOADER := true
 
 # Camera
@@ -65,8 +65,8 @@ BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_gauguin
-TARGET_RECOVERY_DEVICE_MODULES := libinit_gauguin
+TARGET_INIT_VENDOR_LIB := libinit_sweet
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -114,7 +114,7 @@ BUILD_WITHOUT_VENDOR := true
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := lito
+TARGET_BOARD_PLATFORM := sm6150
 
 # Power
 TARGET_USES_INTERACTION_BOOST := true
@@ -146,4 +146,4 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # Inherit from the proprietary version
--include vendor/xiaomi/gauguin/BoardConfigVendor.mk
+-include vendor/xiaomi/sweet/BoardConfigVendor.mk

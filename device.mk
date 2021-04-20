@@ -15,7 +15,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/xiaomi/gauguin/gauguin-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -100,7 +100,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_gauguin
+    android.hardware.light@2.0-service.xiaomi_sweet
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -131,7 +131,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.gauguin
+    android.hardware.power@1.2-service.sweet
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
